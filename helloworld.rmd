@@ -3,7 +3,6 @@ title: "Hello world"
 author: "Esben Lykke Skovgaard"
 date: "6 november 2020"
 output: github_document
-  keep_md: TRUE
 ---
 
 ```{r setup, include=FALSE}
