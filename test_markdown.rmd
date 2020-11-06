@@ -1,0 +1,7 @@
+---
+title: "eksamen_test-Rmd"
+author: "Esben Lykke Skovgaard"
+date: "6 november 2020"
+output: github_document
+---
+
