@@ -1,7 +1,53 @@
 ---
-title: "Eksmaen 2020"
+title: "Eksamen 2020"
 author: "Esben Lykke Skovgaard"
 date: "6 november 2020"
 output: github_document
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  results = "markup"
+)
+```
+
+Indlæs pakker.
+
+```{r, message = FALSE, warning = FALSE, results='hide'}
+packages <- c("tidyverse", "rstatix", "here", "readxl", "knitr", "apa")
+lapply(packages, library, character.only = TRUE)
+```
+
+Indlæs data.
+
+```{r}
+Eksamen2020 <-
+  read_excel(here("Eksamen2020.xlsx"))
+head(Eksamen2020)
+```
+
+Trasformer data en anelse.
+
+```{r}
+Eksamen2020 <-
+  Eksamen2020 %>%
+  mutate(group = factor(if_else(ID > 10000, "kontrol", "intervention"))) %>%
+  mutate(gender = factor(if_else(
+    ID %in% 1000:1999 |
+      ID %in% 10000:11999, "dreng", "pige"
+  )))
+Eksamen2020 <- Eksamen2020 %>%
+  mutate(Level = factor(
+    Level,
+    c(1, 2, 3, 4, 5),
+    c("beginner", "novice", "intermediate", "advanced", "expert")
+  ))
+Eksamen2020[6:12]
+```
+
+Hvor mange bla bla.
+
+```{r}
+summarytools::ctable(Eksamen2020$Level, Eksamen2020$group)
+```
 
