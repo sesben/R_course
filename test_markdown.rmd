@@ -1,5 +1,5 @@
 ---
-title: "eksamen_test-Rmd"
+title: "Eksmaen 2020"
 author: "Esben Lykke Skovgaard"
 date: "6 november 2020"
 output: github_document
